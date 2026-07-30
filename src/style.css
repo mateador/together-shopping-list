@@ -1,0 +1,308 @@
+:root {
+  --bg: #161513;
+  --surface: #211f1c;
+  --surface-hover: #2a2723;
+  --text: #edeae4;
+  --muted: #8a8478;
+  --ember: #ff8a3d;
+  --ember-dim: #4a3524;
+  --cell-off: #2c2a26;
+  --danger: #d9694f;
+  --live: #6fcf97;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+#app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ---------- Onboarding ---------- */
+
+.onboarding {
+  min-height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.onboarding h1 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin: 0 0 0.25rem;
+}
+
+.onboarding p {
+  color: var(--muted);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.onboarding-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.onboarding-card h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+}
+
+.onboarding-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+input, .name-input {
+  background: var(--bg);
+  border: 1px solid var(--cell-off);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+input:focus { border-color: var(--ember); }
+
+.code-input {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--ember);
+  color: #161513;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  transition: filter 0.15s ease;
+}
+.primary-btn:hover { filter: brightness(1.08); }
+.primary-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.divider {
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Main list view ---------- */
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.header .subtitle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  padding: 0.3rem 0.6rem;
+  background: var(--surface);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Signature element: connection-state dot, the thing this app's whole
+   premise depends on being trustworthy */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cell-off);
+  transition: background 0.3s ease;
+}
+.status-pill.live .status-dot {
+  background: var(--live);
+  box-shadow: 0 0 6px var(--live);
+}
+.status-pill.reconnecting .status-dot {
+  background: var(--ember);
+  animation: blink 1s ease-in-out infinite;
+}
+.status-pill.polling .status-dot {
+  background: var(--ember);
+}
+@keyframes blink {
+  50% { opacity: 0.3; }
+}
+
+.add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.add-form input { flex: 1; }
+.add-form button {
+  background: var(--ember);
+  color: #161513;
+  border: none;
+  font-weight: 600;
+  padding: 0.7rem 1.1rem;
+  border-radius: 10px;
+}
+
+.empty-state {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 3rem 1rem;
+  line-height: 1.5;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  transition: background 0.15s ease;
+}
+.item-row:hover { background: var(--surface-hover); }
+
+.item-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  border: 1.5px solid var(--ember-dim);
+  background: transparent;
+  color: var(--ember);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+.item-checkbox.checked {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: #161513;
+}
+
+.item-name {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.item-name.checked {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.item-added-by {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.item-delete {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  padding: 0.2rem;
+}
+.item-delete:hover { color: var(--danger); }
+
+.close-list-btn {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid var(--ember-dim);
+  color: var(--ember);
+  font-weight: 600;
+  padding: 0.85rem;
+  border-radius: 12px;
+  transition: all 0.15s ease;
+}
+.close-list-btn:hover { background: var(--ember-dim); }
+.close-list-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.share-note {
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+.share-note .code {
+  color: var(--ember);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-pill.reconnecting .status-dot { animation: none; }
+}
