@@ -7,11 +7,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons/*.png'],
       manifest: {
-        name: 'Together — Shared Shopping List',
-        short_name: 'Together',
+        name: 'Kinlist — Shared Shopping List',
+        short_name: 'Kinlist',
         description: 'A shopping list you and your household edit together, live.',
-        theme_color: '#161513',
-        background_color: '#161513',
+        theme_color: '#12151A',
+        background_color: '#12151A',
         display: 'standalone',
         start_url: '/',
         icons: [
@@ -21,7 +21,7 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        globPatterns: ['**/*.{js,css,html,svg,png}'],
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.origin === 'https://fonts.googleapis.com',

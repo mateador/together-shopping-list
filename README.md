@@ -1,4 +1,4 @@
-# Together — Shared Shopping List (PWA)
+# Kinlist — Shared Shopping List (PWA)
 
 A shopping list you and your household edit live, from separate phones.
 Talks to the [shopping-list-api](../shopping-list-api) backend — this app
@@ -23,7 +23,7 @@ From then on both phones stay synced live via WebSocket.
 **1. Deploy the backend first** (see its README) — you'll need its live URL.
 
 **2. Push this folder to GitHub, then deploy to Netlify:**
-```bash
+```bash 
 git init && git add . && git commit -m "Initial commit"
 gh repo create together-shopping-list --public --source=. --remote=origin --push
 ```
@@ -37,7 +37,7 @@ Netlify reads `netlify.toml` for the build command automatically.
 backend's Render dashboard and set `ALLOWED_ORIGINS` to that exact URL
 instead of `*`.
 
-## How the pieces fit together
+## How the pieces fit Kinlist
 
 - **Onboarding** (`src/main.js`): create-or-join flow, stores the household
   code and your display name in `localStorage` (device-local, never synced —

@@ -1,14 +1,14 @@
 :root {
-  --bg: #161513;
-  --surface: #211f1c;
-  --surface-hover: #2a2723;
-  --text: #edeae4;
-  --muted: #8a8478;
-  --ember: #ff8a3d;
-  --ember-dim: #4a3524;
-  --cell-off: #2c2a26;
-  --danger: #d9694f;
-  --live: #6fcf97;
+  --bg: #12151A;
+  --surface: #1B1F26;
+  --surface-hover: #242933;
+  --border: #2E3540;
+  --text: #F4F6F2;
+  --muted: #9098A0;
+  --primary: #45B876;
+  --primary-dim: #24402F;
+  --on-primary: #0B2A18;
+  --danger: #E85C41;
 
   --font-display: 'Fraunces', serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -80,7 +80,7 @@ body {
 
 input, .name-input {
   background: var(--bg);
-  border: 1px solid var(--cell-off);
+  border: 1px solid var(--border);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1rem;
@@ -89,7 +89,7 @@ input, .name-input {
   outline: none;
   transition: border-color 0.15s ease;
 }
-input:focus { border-color: var(--ember); }
+input:focus { border-color: var(--primary); }
 
 .code-input {
   text-transform: uppercase;
@@ -103,7 +103,7 @@ button {
 }
 
 .primary-btn {
-  background: var(--ember);
+  background: var(--primary);
   color: #161513;
   border: none;
   font-weight: 600;
@@ -170,19 +170,19 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--cell-off);
+  background: var(--border);
   transition: background 0.3s ease;
 }
 .status-pill.live .status-dot {
-  background: var(--live);
-  box-shadow: 0 0 6px var(--live);
+  background: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
 }
 .status-pill.reconnecting .status-dot {
-  background: var(--ember);
+  background: var(--primary);
   animation: blink 1s ease-in-out infinite;
 }
 .status-pill.polling .status-dot {
-  background: var(--ember);
+  background: var(--primary);
 }
 @keyframes blink {
   50% { opacity: 0.3; }
@@ -195,7 +195,7 @@ button {
 }
 .add-form input { flex: 1; }
 .add-form button {
-  background: var(--ember);
+  background: var(--primary);
   color: #161513;
   border: none;
   font-weight: 600;
@@ -234,9 +234,9 @@ button {
   width: 24px;
   height: 24px;
   border-radius: 7px;
-  border: 1.5px solid var(--ember-dim);
+  border: 1.5px solid var(--primary-dim);
   background: transparent;
-  color: var(--ember);
+  color: var(--primary);
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -244,9 +244,9 @@ button {
   transition: all 0.15s ease;
 }
 .item-checkbox.checked {
-  background: var(--ember);
-  border-color: var(--ember);
-  color: #161513;
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .item-name {
@@ -279,14 +279,14 @@ button {
 .close-list-btn {
   width: 100%;
   background: transparent;
-  border: 1.5px solid var(--ember-dim);
-  color: var(--ember);
+  border: 1.5px solid var(--primary-dim);
+  color: var(--primary);
   font-weight: 600;
   padding: 0.85rem;
   border-radius: 12px;
   transition: all 0.15s ease;
 }
-.close-list-btn:hover { background: var(--ember-dim); }
+.close-list-btn:hover { background: var(--primary-dim); }
 .close-list-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .share-note {
@@ -298,7 +298,7 @@ button {
   line-height: 1.6;
 }
 .share-note .code {
-  color: var(--ember);
+  color: var(--primary);
   font-weight: 500;
   letter-spacing: 0.1em;
 }

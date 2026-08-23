@@ -23,7 +23,7 @@ async function renderOnboarding() {
   app.innerHTML = `
     <div class="onboarding">
       <div>
-        <h1>Together</h1>
+        <h1>Kinlist</h1>
         <p>One shopping list, shared live between you and your household.</p>
       </div>
 
@@ -99,7 +99,7 @@ function renderList() {
   app.innerHTML = `
     <div class="header">
       <div>
-        <h1>Together</h1>
+        <h1>Kinlist</h1>
         <div class="subtitle">List for ${currentState.list ? currentState.list.date : '…'}</div>
       </div>
       <div class="status-pill ${connectionStatus}">
