@@ -246,7 +246,7 @@ button {
 .item-checkbox.checked {
   background: var(--primary);
   border-color: var(--primary);
-  color: var(--primary);
+  color: var(--on-primary);
 }
 
 .item-name {
