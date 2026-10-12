@@ -55,3 +55,14 @@ If the backend hasn't been hit in the last 15 minutes, the very first
 request after that (whoever opens the app first) will take 30-50 seconds to
 get a response while Render wakes the service back up. Everything after that
 is instant. Worth knowing so it doesn't look broken the first time.
+
+## Push notifications
+
+The API sends the pushes through OneSignal; this app only registers the device
+and tags it with the household code and display name (`src/push.js`). To turn
+it on, set `VITE_ONESIGNAL_APP_ID` (locally in `.env`, and as a Netlify build
+variable) and redeploy. The OneSignal app must use the *Custom Code* web setup,
+and its worker lives at `public/push/onesignal/` so it doesn't clash with the
+PWA's own service worker. Each person taps "Notify me when someone adds an
+item" once to allow notifications.
+

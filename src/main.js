@@ -2,8 +2,10 @@ import './style.css'
 import { registerSW } from 'virtual:pwa-register'
 import * as api from './api.js'
 import * as local from './local.js'
+import * as push from './push.js'
 
 registerSW({ immediate: true })
+push.initPush()
 
 const app = document.getElementById('app')
 
@@ -123,10 +125,24 @@ function renderList() {
       Finished shopping — close this list
     </button>
 
+    ${
+      push.canAskForPush()
+        ? `<button class="notify-btn" id="notify-btn">Notify me when someone adds an item</button>`
+        : ''
+    }
+
     <div class="share-note">
       Share this code so they can join: <span class="code">${code}</span>
     </div>
   `
+
+  const notifyBtn = document.getElementById('notify-btn')
+  if (notifyBtn) {
+    notifyBtn.addEventListener('click', async () => {
+      await push.enablePush()
+      renderList()
+    })
+  }
 
   document.getElementById('add-form').addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -183,6 +199,8 @@ function boot() {
     renderOnboarding()
     return
   }
+
+  push.syncPushTags(code, local.getDisplayName())
 
   if (disconnectLive) disconnectLive()
 
