@@ -1,7 +1,7 @@
 # Kinlist — Shared Shopping List (PWA)
 
 A shopping list you and your household edit live, from separate phones.
-Talks to the [shopping-list-api](../shopping-list-api) backend — this app
+Talks to the [shopping-list-api](https://github.com/mateador/shopping-list-api) backend — this app
 has no local database of its own; the server is the source of truth.
 
 ## Run locally
